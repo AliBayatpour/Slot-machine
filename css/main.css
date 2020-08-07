@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.mainContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+}
+
+.reelsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 480px;
+  height: 450px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.reelsContainer .reelWrapper {
+  width: 150px;
+  position: relative;
+  border: 1px #f0014d solid;
+  -webkit-box-shadow: #f0014d 0 0 10px 0;
+          box-shadow: #f0014d 0 0 10px 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(#910021), color-stop(50%, #f0014d), to(#910021));
+  background: linear-gradient(0deg, #910021 0%, #f0014d 50%, #910021 100%);
+  border-radius: 4px;
+}
+
+.reelsContainer .reel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.reelsContainer .picWrapper {
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.reelsContainer .picWrapper--empty {
+  height: 75px;
+}
+
+.reelsContainer .picWrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.gameContainer {
+  background-image: url("/assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  height: auto;
+  padding-bottom: 16px;
+}
+
+.paytable {
+  width: 100%;
+  height: 450px;
+  max-width: 320px;
+  padding: 16px;
+  background: rgba(34, 7, 24, 0.8);
+  border: 1px white solid;
+  -webkit-box-shadow: white 0 0 10px 0;
+          box-shadow: white 0 0 10px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  top: 24px;
+  right: 16px;
+}
+
+.paytable__row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paytable__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.paytable__img img {
+  width: 30px;
+  height: 30px;
+}
+
+.paytable__text {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paytable__text span {
+  margin-left: 16px;
+}
+
+.controlerContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.controlerContainer .controler {
+  width: 90%;
+  max-width: 800px;
+  min-height: 300px;
+  margin-top: 16px;
+  background: #220718;
+  border: 1px #f0014d solid;
+  -webkit-box-shadow: #f0014d 0 0 10px 0;
+          box-shadow: #f0014d 0 0 10px 0;
+  border-radius: 20px;
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controlerContainer .balance {
+  width: calc(100% / 3);
+  margin-left: 16px;
+}
+
+.controlerContainer .balance p {
+  font-size: 17px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: white;
+}
+
+.controlerContainer .balance ion-item {
+  max-width: 150px;
+  --background: #220718;
+  border: 1px #f0014d solid;
+  border-radius: 4px;
+  -webkit-box-shadow: #f0014d 0 0 10px 0;
+          box-shadow: #f0014d 0 0 10px 0;
+}
+
+.controlerContainer .balance ion-item ion-input {
+  --background: #220718;
+  --color: white;
+}
+
+.controlerContainer .mode {
+  width: 100%;
+  background: 220718;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 16px;
+}
+
+.controlerContainer .mode p {
+  margin-left: 16px;
+  color: white;
+}
+
+.controlerContainer .mode ion-radio-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.controlerContainer .mode ion-radio-group ion-item {
+  --background: #220718;
+}
+
+.controlerContainer .mode ion-radio-group ion-item ion-label {
+  margin-left: 5px;
+  --color: white;
+}
+
+.controlerContainer .mode ion-radio-group ion-item ion-radio {
+  --color-checked: #f0014d;
+  --color: white;
+}
+
+.controlerContainer .fixMode {
+  width: 100%;
+}
+
+.controlerContainer .fixMode__cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.controlerContainer .fixMode__cols .firstReel {
+  margin-left: 16px;
+}
+
+.controlerContainer .fixMode ion-item {
+  --border-color: #f0014d;
+  --background: #220718;
+  border: 1px white solid;
+  color: white;
+  --color-hover: white;
+  -webkit-box-shadow: white 0 0 5px 0;
+          box-shadow: white 0 0 5px 0;
+}
+
+.controlerContainer .spinButWrapper {
+  width: calc(100% / 3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.controlerContainer .spinButWrapper .spinBut {
+  background: #f0014d;
+  -webkit-box-shadow: #ffffff 0 0 10px 0;
+          box-shadow: #ffffff 0 0 10px 0;
+  border: 1px white solid;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=main.css.map */

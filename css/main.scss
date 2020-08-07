@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.reelsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 480px;
+  height: 450px;
+  overflow: hidden;
+  margin-top: 24px;
+  .reelWrapper {
+    width: 150px;
+    position: relative;
+    border: 1px rgba(240, 1, 77, 1) solid;
+    box-shadow: rgba(240, 1, 77, 1) 0 0 10px 0;
+    background: linear-gradient(
+      0deg,
+      rgba(145, 0, 33, 1) 0%,
+      rgba(240, 1, 77, 1) 50%,
+      rgba(145, 0, 33, 1) 100%
+    );
+    border-radius: 4px;
+  }
+  .reel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .picWrapper {
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    &--empty {
+      height: 75px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// additional styles for improving the UI
+.gameContainer {
+  background-image: url("/assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  height: auto;
+  padding-bottom: 16px;
+}
+.paytable {
+  width: 100%;
+  height: 450px;
+  max-width: 320px;
+  padding: 16px;
+  background: rgba(34, 7, 24, 0.8);
+  border: 1px white solid;
+  box-shadow: white 0 0 10px 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 24px;
+  right: 16px;
+  &__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__img {
+    display: flex;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &__text {
+    color: white;
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 16px;
+    }
+  }
+}
+.controlerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .controler {
+    width: 90%;
+    max-width: 800px;
+    min-height: 300px;
+    margin-top: 16px;
+    background: #220718;
+    border: 1px #f0014d solid;
+    box-shadow: #f0014d 0 0 10px 0;
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .balance {
+    width: calc(100% / 3);
+    margin-left: 16px;
+    p {
+      font-size: 17px;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: white;
+    }
+    ion-item {
+      max-width: 150px;
+      --background: #220718;
+      border: 1px #f0014d solid;
+      border-radius: 4px;
+      box-shadow: #f0014d 0 0 10px 0;
+      ion-input {
+        --background: #220718;
+        --color: white;
+      }
+    }
+  }
+  .mode {
+    width: 100%;
+    background: 220718;
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    p {
+      margin-left: 16px;
+      color: white;
+    }
+    ion-radio-group {
+      display: flex;
+      ion-item {
+        --background: #220718;
+        ion-label {
+          margin-left: 5px;
+          --color: white;
+        }
+        ion-radio {
+          --color-checked: #f0014d;
+          --color: white;
+        }
+      }
+    }
+  }
+  .fixMode {
+    width: 100%;
+    &__cols {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      .firstReel {
+        margin-left: 16px;
+      }
+    }
+    ion-item {
+      --border-color: #f0014d;
+      --background: #220718;
+      border: 1px white solid;
+      color: white;
+      --color-hover: white;
+      box-shadow: white 0 0 5px 0;
+    }
+  }
+  .spinButWrapper {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    .spinBut {
+      background: #f0014d;
+      box-shadow: #ffffff 0 0 10px 0;
+      border: 1px white solid;
+      cursor: pointer;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  }
+}
