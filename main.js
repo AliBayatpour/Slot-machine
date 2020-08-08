@@ -68,6 +68,7 @@ const reelItems = [
 ];
 let balanceArea = document.querySelector("#balanceArea");
 let totalScore = 500;
+let spinBut = document.querySelector(".spinBut");
 
 // spins the reels
 let tl = gsap.timeline({ repeat: -1, paused: true });
@@ -100,7 +101,6 @@ changeMode = (slotMode) => {
 // Handles paytable animations on mobile
 let paytableShow = false;
 menuClicked = () => {
-  console.log("Menu clicked");
   if (paytableShow) {
     gsap.to(".paytable", 0.5, { y: -600, ease: "power2.out" });
     paytableShow = false;
@@ -208,19 +208,16 @@ initialPositions = () => {
   let reel_right_rnd = getRndInteger();
   spinInitializing(reel_left_rnd, reel_center_rnd, reel_right_rnd);
 };
-// Gets the results and spins the reels and land on proper positions
+
 spinInitializing = (reel_left_rnd, reel_center_rnd, reel_right_rnd) => {
-  gsap.to(".reel__left", 0.2, {
+  gsap.to(".reel__left", 0, {
     y: reelItems[reel_left_rnd]["position"],
-    ease: "elastic.out(1, 0.3)",
   });
-  gsap.to(".reel__center", 0.2, {
+  gsap.to(".reel__center", 0, {
     y: reelItems[reel_center_rnd]["position"],
-    ease: "elastic.out(1, 0.3)",
   });
-  gsap.to(".reel__right", 0.2, {
+  gsap.to(".reel__right", 0, {
     y: reelItems[reel_right_rnd]["position"],
-    ease: "elastic.out(1, 0.3)",
   });
 };
 
@@ -238,7 +235,7 @@ blinkLine = (lineClass, score) => {
           ".paytable__row--cherryBottom",
           0.4,
           { opacity: 0, background: "white" },
-          { opacity: 1, background: "null" }
+          { opacity: 1, background: "#220718cc" }
         );
         break;
       case 2000:
@@ -317,7 +314,7 @@ blinkLine = (lineClass, score) => {
       default:
         break;
     }
-  }, 1000);
+  }, 2000);
 };
 
 // gets the result for each position
@@ -340,7 +337,6 @@ spinResults = (slotMode) => {
     reel_left_rnd = getInteger(leftReelPosition, leftReelSymbol);
     reel_center_rnd = getInteger(centerReelPosition, centerReelSymbol);
     reel_right_rnd = getInteger(rightReelPosition, rightReelSymbol);
-    console.log(reel_left_rnd, reel_center_rnd, reel_right_rnd);
   }
   spinTo(reel_left_rnd, reel_center_rnd, reel_right_rnd);
   let topLineResults = [
@@ -362,41 +358,49 @@ spinResults = (slotMode) => {
   if (topLineScore) {
     blinkLine("reelHighlightBox--top", topLineScore);
   }
-  console.log("Top line score = " + topLineScore);
   let centerLineScore = calculateScore(centerLineResults, "center");
   if (centerLineScore) {
     blinkLine("reelHighlightBox--center", centerLineScore);
   }
-  console.log("Center line score = " + centerLineScore);
   let bottomLineScore = calculateScore(bottomLineResults, "bottom");
   if (bottomLineScore) {
     blinkLine("reelHighlightBox--bottom", bottomLineScore);
   }
-  console.log("Bottom line score = " + bottomLineScore);
   totalScore = totalScore + topLineScore + centerLineScore + bottomLineScore;
   balanceArea.value = totalScore;
 };
 
-// Gets the results and spins the reels and land on proper positions
 spinTo = (reel_left_rnd, reel_center_rnd, reel_right_rnd) => {
   let spinTo = gsap.timeline({ repeat: 0 });
   spinTo
-    .to(".reel__left", 0.5, {
+    .to(".reel__left", 1, {
       y: reelItems[reel_left_rnd]["position"],
+      ease: "elastic.out(1, 0.3)",
     })
-    .to(".reel__center", 0.5, {
-      y: reelItems[reel_center_rnd]["position"],
-    })
-    .to(".reel__right", 0.5, {
-      y: reelItems[reel_right_rnd]["position"],
-    });
+    .to(
+      ".reel__center",
+      1,
+      {
+        y: reelItems[reel_center_rnd]["position"],
+        ease: "elastic.out(1, 0.3)",
+      },
+      "-=0.5"
+    )
+    .to(
+      ".reel__right",
+      1,
+      {
+        y: reelItems[reel_right_rnd]["position"],
+        ease: "elastic.out(1, 0.3)",
+      },
+      "-=0.5"
+    );
 };
 
 // spins the reels before deciding the results
 spin = () => {
   if (totalScore > 0) {
     //disable the spin button
-    let spinBut = document.querySelector(".spinBut");
     if (!spinBut.disable) {
       totalScore = totalScore - 1;
       balanceArea.value = totalScore;
@@ -412,9 +416,11 @@ spin = () => {
       setTimeout(() => {
         tl.pause();
         spinResults(mode);
+      }, 1000);
+      setTimeout(() => {
         spinBut.disable = false;
         spinBut.classList.toggle("disable");
-      }, 1500);
+      }, 2500);
     }
   }
 };
