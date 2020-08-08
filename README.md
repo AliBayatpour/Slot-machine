@@ -10,44 +10,38 @@ How to download and use the code?
 2- Unzip it if it is a zip file
 3-Open it with your code editor.
 4-Run index.html file
-
-How the game is working?
-Detailed description
-Slot machine page has following interface elements:
-1. reels
-2. pay-table
-3. balance indicator (text-box)
-4. SPIN button.
-5. Debug area
-Reels
-Slot machine has 3 reels, each having following 5 symbols in order:
-3xBAR, BAR, 2xBAR, 7, CHERRY
-
-Some rules:
-1-Each Spin costs 1 coin
-
-Only part of the reel is visible to user.
-A reel can stop only in fixed positions. A stopped reel has either:
-1. a symbol on center win line
-2. symbols on top and bottom win-line positions
-Pay-table
-Pay-table must indicate winning combinations and payouts as:
-3 CHERRY symbols on top line 2000
-3 CHERRY symbols on center line 1000
-3 CHERRY symbols on bottom line 4000
-3 7 symbols on any line 150
-Any combination of CHERRY and 7 on any line 75
-3 3xBAR symbols on any line 50
-3 2xBAR symbols on any line 20
-3 BAR symbols on any line 10
-Combination of any BAR symbols on any line 5
-
-Balance area
-Players current balance is shown on balance text-box. For debugging purposes, it is permitted player enter integer to balance box in range 1...5000. and 
-Spin button
-Press on SPIN button start spinning of all three reels. Each spin costs player 1 coin. During the reel spinning player can not do anything else than wait. The spinning must last 2 seconds, after that reels start to sop one by one (starting from left) having 0.5 sec delay between landings.
+Interface
+reels
+pay-table
+balance indicator (text-box)
+SPIN button.
 Debug area
-It must be possible use the slot machine in two modes: random and fixed. In case of random mode, the reels must land random positions. For fixed mode, the player must able enter two parameters for each reel. These input parameters are:
-1. a symbol from set {BAR, 2xBAR, 3xBAR, 7, CHERRY}
-2. landing position of the symbol from set {top, center, bottom}
-If fixed mode is active, the reels must land as specified by tester.
+Reels
+Slot machine has 3 reels, each having following 5 symbols in order: 3xBAR, BAR, 2xBAR, 7, CHERRY Only part of the reel is visible to user. There are horizontal win-lines on visible part of reel: top, center, bottom.
+
+Pay Table
+Table with combinations prizes, this table blinks and moves once on its corresponding value when the combination in one of the Reels has occured.
+
+Prizes combinations:
+
+ *  3 BAR symbols on any line 10
+ *  Combination of any BAR symbols on any line 5
+ *  3 2xBAR symbols on any line 20
+ *  3 3xBAR symbols on any line 50
+ *  3 7 symbols on any line 150
+ *  3 CHERRY symbols on top line 2000
+ *  3 CHERRY symbols on center line 1000
+ *  3 CHERRY symbols on bottom line 4000
+ *  Any combination of CHERRY and 7 on any line 75 
+Balance
+Text-box showing the coin balance, it can be modified for debugging purposes on a range from 1 to 5000.
+
+Sping Button
+Press on SPIN button start spinning of all three reels. Each spin costs player 1 coin.
+
+Debug Area
+It is posible to run the application in mode random and fixed, with the sencond one it is possible to set up the desire values with a select element which defines the verticall position where the user would like to set a specific value, each select has its own slider with the values to be set.
+
+Select: * Top Line * Center Line * Bottom Line
+
+Slider: Bar - 2Bar - 3Bar - 7 - Cherry
