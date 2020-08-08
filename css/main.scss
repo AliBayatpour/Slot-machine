@@ -65,7 +65,7 @@
   height: 450px;
   max-width: 320px;
   padding: 16px;
-  background: rgba(34, 7, 24, 0.8);
+  background: #220718cc;
   border: 1px white solid;
   box-shadow: white 0 0 10px 0;
   overflow: hidden;
@@ -97,10 +97,28 @@
     }
   }
 }
+.reelHighlightBox {
+  position: absolute;
+  width: 100%;
+  border: 1px #f0014d solid;
+  background: white;
+  opacity: 0;
+  height: 150px;
+  &--top {
+    top: 37.5px;
+  }
+  &--center {
+    top: 150px;
+  }
+  &--bottom {
+    top: 262.5px;
+  }
+}
 .controlerContainer {
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   .controler {
     width: 90%;
     max-width: 800px;
@@ -167,7 +185,7 @@
       display: flex;
       justify-content: space-between;
       flex-direction: row;
-      .firstReel {
+      .leftReel {
         margin-left: 16px;
       }
     }
@@ -190,6 +208,7 @@
       border: 1px white solid;
       cursor: pointer;
       color: white;
+      outline: none;
       font-size: 18px;
       font-weight: bold;
       display: flex;
@@ -199,6 +218,17 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
+      ion-icon {
+        margin-bottom: 2px;
+      }
+      &:hover {
+        opacity: 0.9;
+        box-shadow: #ffffff 0 0 20px 0;
+      }
     }
   }
+}
+.disable {
+  background: #220718 !important;
+  cursor: not-allowed !important;
 }

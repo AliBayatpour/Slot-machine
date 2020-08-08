@@ -25,6 +25,19 @@
           <div class="mainContainer">
             <div class="reelsContainer">
               <div class="reelWrapper">
+                <div
+                  class="reelHighlightBox reelHighlightBox--top"
+                  id="leftReel__top"
+                ></div>
+                <div
+                  class="reelHighlightBox reelHighlightBox--center"
+                  id="leftReel__center"
+                ></div>
+                <div
+                  class="reelHighlightBox reelHighlightBox--bottom"
+                  id="leftReel__bottom"
+                ></div>
+
                 <!---------reel---------->
                 <div class="reel reel__left">
                   <div
@@ -75,6 +88,18 @@
                 </div>
               </div>
               <div class="reelWrapper">
+                <div
+                  class="reelHighlightBox reelHighlightBox--top"
+                  id="centerReel__top"
+                ></div>
+                <div
+                  class="reelHighlightBox reelHighlightBox--center"
+                  id="centerReel__center"
+                ></div>
+                <div
+                  class="reelHighlightBox reelHighlightBox--bottom"
+                  id="centerReel__bottom"
+                ></div>
                 <!---------reel---------->
                 <div class="reel reel__center">
                   <div
@@ -125,6 +150,18 @@
                 </div>
               </div>
               <div class="reelWrapper">
+                <div
+                  class="reelHighlightBox reelHighlightBox--top"
+                  id="rightReel__top"
+                ></div>
+                <div
+                  class="reelHighlightBox reelHighlightBox--center"
+                  id="rightReel__center"
+                ></div>
+                <div
+                  class="reelHighlightBox reelHighlightBox--bottom"
+                  id="rightReel__bottom"
+                ></div>
                 <!---------reel---------->
                 <div class="reel reel__right">
                   <div
@@ -176,7 +213,7 @@
               </div>
             </div>
             <div class="paytable">
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--cherryBottom">
                 <div class="paytable__img">
                   <img src="/assets/Cherry.png" alt="cherry" />
                   <img src="/assets/Cherry.png" alt="cherry" />
@@ -187,7 +224,7 @@
                   <span>4000</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--cherryTop">
                 <div class="paytable__img">
                   <img src="/assets/Cherry.png" alt="cherry" />
                   <img src="/assets/Cherry.png" alt="cherry" />
@@ -198,7 +235,7 @@
                   <span>2000</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--cherryCenter">
                 <div class="paytable__img">
                   <img src="/assets/Cherry.png" alt="cherry" />
                   <img src="/assets/Cherry.png" alt="cherry" />
@@ -209,7 +246,7 @@
                   <span>1000</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--seven">
                 <div class="paytable__img">
                   <img src="/assets/7.png" alt="seven" />
                   <img src="/assets/7.png" alt="seven" />
@@ -220,7 +257,7 @@
                   <span>150</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--sevenCherry">
                 <div class="paytable__img">
                   <img src="/assets/7.png" alt="seven" />
                   <img src="/assets/Cherry.png" />
@@ -230,7 +267,7 @@
                   <span>75</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--trippleBars">
                 <div class="paytable__img">
                   <img src="/assets/3xBAR.png" alt="seven" />
                   <img src="/assets/3xBAR.png" alt="seven" />
@@ -241,7 +278,7 @@
                   <span>50</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--doubleBars">
                 <div class="paytable__img">
                   <img src="/assets/2xBAR.png" alt="seven" />
                   <img src="/assets/2xBAR.png" alt="seven" />
@@ -252,7 +289,7 @@
                   <span>20</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--oneBars">
                 <div class="paytable__img">
                   <img src="/assets/BAR.png" />
                   <img src="/assets/BAR.png" />
@@ -263,7 +300,7 @@
                   <span>10</span>
                 </div>
               </div>
-              <div class="paytable__row">
+              <div class="paytable__row paytable__row--bars">
                 <div class="paytable__img">
                   <img src="/assets/3xBAR.png" />
                   <img src="/assets/2xBAR.png" />
@@ -281,23 +318,27 @@
               <div class="balance">
                 <p>Balance</p>
                 <ion-item lines="none">
-                  <ion-input value="5000"></ion-input>
+                  <ion-input
+                    value="5000"
+                    id="balanceArea"
+                    onkeyup="changeScore()"
+                  ></ion-input>
                 </ion-item>
               </div>
               <div class="spinButWrapper">
-                <div class="spinBut" onclick="spin()">
-                  <ion-icon name="reload"></ion-icon>
+                <button class="spinBut" onclick="spin()">
+                  <ion-icon name="reload" id="spinIcon"></ion-icon>
                   Spin
-                </div>
+                </button>
               </div>
               <div class="mode">
                 <p>Mode</p>
                 <ion-radio-group value="random">
-                  <ion-item>
+                  <ion-item onclick="changeMode('random')">
                     <ion-label>Random</ion-label>
                     <ion-radio slot="start" value="random"></ion-radio>
                   </ion-item>
-                  <ion-item>
+                  <ion-item onclick="changeMode('fixed')">
                     <ion-label>Fixed</ion-label>
                     <ion-radio slot="start" value="fixed"></ion-radio>
                   </ion-item>
@@ -308,8 +349,7 @@
                   <div class="ReelWrapper">
                     <ion-item class="firstReel">
                       <ion-label>Left Reel</ion-label>
-                      <ion-select value="Top">
-                        <ion-select-option value="none">None</ion-select-option>
+                      <ion-select value="top" id="leftReelPosition">
                         <ion-select-option value="top">Top</ion-select-option>
                         <ion-select-option value="center"
                           >Center</ion-select-option
@@ -319,9 +359,9 @@
                         >
                       </ion-select>
                     </ion-item>
-                    <ion-item class="firstReel">
+                    <ion-item class="leftReel">
                       <ion-label>Symbol</ion-label>
-                      <ion-select value="Top">
+                      <ion-select value="bar" id="leftReelSymbol">
                         <ion-select-option value="bar">BAR</ion-select-option>
                         <ion-select-option value="2xbar"
                           >2xBAR</ion-select-option
@@ -339,8 +379,7 @@
                   <div class="ReelWrapper">
                     <ion-item>
                       <ion-label>Center Reel</ion-label>
-                      <ion-select value="Top">
-                        <ion-select-option value="none">None</ion-select-option>
+                      <ion-select value="top" id="centerReelPosition">
                         <ion-select-option value="top">Top</ion-select-option>
                         <ion-select-option value="center"
                           >Center</ion-select-option
@@ -352,7 +391,7 @@
                     </ion-item>
                     <ion-item>
                       <ion-label>Symbol</ion-label>
-                      <ion-select value="Top">
+                      <ion-select value="bar" id="centerReelSymbol">
                         <ion-select-option value="bar">BAR</ion-select-option>
                         <ion-select-option value="2xbar"
                           >2xBAR</ion-select-option
@@ -370,8 +409,7 @@
                   <div class="ReelWrapper">
                     <ion-item>
                       <ion-label>Right Reel</ion-label>
-                      <ion-select value="Top">
-                        <ion-select-option value="none">None</ion-select-option>
+                      <ion-select value="top" id="rightReelPosition">
                         <ion-select-option value="top">Top</ion-select-option>
                         <ion-select-option value="center"
                           >Center</ion-select-option
@@ -383,7 +421,7 @@
                     </ion-item>
                     <ion-item>
                       <ion-label>Symbol</ion-label>
-                      <ion-select value="Top">
+                      <ion-select value="bar" id="rightReelSymbol">
                         <ion-select-option value="bar">BAR</ion-select-option>
                         <ion-select-option value="2xbar"
                           >2xBAR</ion-select-option
