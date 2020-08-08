@@ -28,6 +28,8 @@
           <div class="mainContainer">
             <div class="reelsContainer">
               <div class="reelWrapper">
+                <!---------Three box for highlighting items when a win happens---------->
+
                 <div
                   class="reelHighlightBox reelHighlightBox--top"
                   id="leftReel__top"
@@ -41,7 +43,7 @@
                   id="leftReel__bottom"
                 ></div>
 
-                <!---------reel---------->
+                <!---------Left Reel---------->
                 <div class="reel reel__left">
                   <div
                     class="picWrapper picWrapper--empty picWrapper__reel1"
@@ -103,7 +105,7 @@
                   class="reelHighlightBox reelHighlightBox--bottom"
                   id="centerReel__bottom"
                 ></div>
-                <!---------reel---------->
+                <!---------Center Reel---------->
                 <div class="reel reel__center">
                   <div
                     class="picWrapper picWrapper--empty picWrapper__reel1"
@@ -165,7 +167,7 @@
                   class="reelHighlightBox reelHighlightBox--bottom"
                   id="rightReel__bottom"
                 ></div>
-                <!---------reel---------->
+                <!---------Right reel---------->
                 <div class="reel reel__right">
                   <div
                     class="picWrapper picWrapper--empty picWrapper__reel1"
@@ -215,6 +217,7 @@
                 </div>
               </div>
             </div>
+            <!---------Paytable---------->
             <div class="paytable">
               <div class="paytable__row paytable__row--cherryBottom">
                 <div class="paytable__img">
@@ -316,13 +319,16 @@
               </div>
             </div>
           </div>
+          <!---------Controler Box(Black box under the slot machine)---------->
           <div class="controlerContainer">
             <div class="controler">
               <div class="balance">
                 <p>Balance</p>
                 <ion-item lines="none">
                   <ion-input
-                    value="5000"
+                    value="500"
+                    min="1"
+                    max="5000"
                     id="balanceArea"
                     onkeyup="changeScore()"
                   ></ion-input>
@@ -334,6 +340,7 @@
                   Spin
                 </button>
               </div>
+              <!---------Mode Section---------->
               <div class="mode">
                 <p>Mode</p>
                 <ion-radio-group value="random">
@@ -347,9 +354,11 @@
                   </ion-item>
                 </ion-radio-group>
               </div>
+              <!---------Fix mode controls---------->
               <div class="fixMode">
                 <div class="fixMode__cols">
                   <div class="modeSelects">
+                    <!---------Select Position---------->
                     <ion-item class="leftReel">
                       <ion-label>Left Reel</ion-label>
                       <ion-select value="top" id="leftReelPosition">
@@ -362,6 +371,7 @@
                         >
                       </ion-select>
                     </ion-item>
+                    <!---------Select Symbol---------->
                     <ion-item class="leftReel">
                       <ion-label>Symbol</ion-label>
                       <ion-select value="bar" id="leftReelSymbol">
@@ -379,6 +389,7 @@
                       </ion-select>
                     </ion-item>
                   </div>
+                  <!---------Select Position---------->
                   <div class="modeSelects">
                     <ion-item>
                       <ion-label>Center Reel</ion-label>
@@ -392,6 +403,7 @@
                         >
                       </ion-select>
                     </ion-item>
+                    <!---------Select Symbol---------->
                     <ion-item>
                       <ion-label>Symbol</ion-label>
                       <ion-select value="bar" id="centerReelSymbol">
@@ -410,6 +422,7 @@
                     </ion-item>
                   </div>
                   <div class="modeSelects">
+                    <!---------Select Position---------->
                     <ion-item>
                       <ion-label>Right Reel</ion-label>
                       <ion-select value="top" id="rightReelPosition">
@@ -422,6 +435,7 @@
                         >
                       </ion-select>
                     </ion-item>
+                    <!---------Select Symbol---------->
                     <ion-item>
                       <ion-label>Symbol</ion-label>
                       <ion-select value="bar" id="rightReelSymbol">
