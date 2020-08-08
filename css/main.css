@@ -64,13 +64,20 @@
   height: 100%;
 }
 
+ion-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .gameContainer {
   background-image: url("/assets/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   margin: 0;
-  height: auto;
+  height: 100vh;
+  min-height: 950px;
+  width: 100%;
   padding-bottom: 16px;
 }
 
@@ -259,6 +266,8 @@
 
 .controlerContainer .fixMode {
   width: 100%;
+  -webkit-transform: translateY(400px);
+          transform: translateY(400px);
 }
 
 .controlerContainer .fixMode__cols {
