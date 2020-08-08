@@ -1,3 +1,4 @@
+// This array represents each Symbol and its position
 const reelItems = [
   {
     name: "oneBar",
@@ -66,8 +67,9 @@ const reelItems = [
   },
 ];
 let balanceArea = document.querySelector("#balanceArea");
-let totalScore = 5000;
+let totalScore = 500;
 
+// spins the reels
 let tl = gsap.timeline({ repeat: -1, paused: true });
 tl.fromTo(
   ".reel",
@@ -85,6 +87,7 @@ tl.fromTo(
 );
 let mode = "random";
 
+// changes the mode
 changeMode = (slotMode) => {
   mode = slotMode;
   if (mode === "random") {
@@ -94,7 +97,7 @@ changeMode = (slotMode) => {
   }
 };
 
-// for mobile
+// Handles paytable animations on mobile
 let paytableShow = false;
 menuClicked = () => {
   console.log("Menu clicked");
@@ -107,9 +110,12 @@ menuClicked = () => {
   }
 };
 
+// chooses a random integer between 1 to 10
 getRndInteger = (min = 1, max = 10) => {
   return Math.floor(Math.random() * (max + 1 - min)) + min;
 };
+
+// For the fix mode decides what are the positions of the landing elements
 getInteger = (position, symbol) => {
   let value;
   switch (symbol) {
@@ -142,10 +148,11 @@ getInteger = (position, symbol) => {
       break;
   }
 };
+
+// Calculates the score
 calculateScore = (lineResults, line) => {
-  console.log(lineResults);
-  console.log(lineResults.includes("e"));
   let score = 0;
+  // If any empty element on the line there is no score
   if (lineResults.includes("e")) {
     return score;
   } else {
@@ -194,12 +201,30 @@ calculateScore = (lineResults, line) => {
   }
 };
 
+// assigns random symbols to the center line
 initialPositions = () => {
   let reel_left_rnd = getRndInteger();
   let reel_center_rnd = getRndInteger();
   let reel_right_rnd = getRndInteger();
-  spinTo(reel_left_rnd, reel_center_rnd, reel_right_rnd);
+  spinInitializing(reel_left_rnd, reel_center_rnd, reel_right_rnd);
 };
+// Gets the results and spins the reels and land on proper positions
+spinInitializing = (reel_left_rnd, reel_center_rnd, reel_right_rnd) => {
+  gsap.to(".reel__left", 0.2, {
+    y: reelItems[reel_left_rnd]["position"],
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.to(".reel__center", 0.2, {
+    y: reelItems[reel_center_rnd]["position"],
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.to(".reel__right", 0.2, {
+    y: reelItems[reel_right_rnd]["position"],
+    ease: "elastic.out(1, 0.3)",
+  });
+};
+
+// Blinking animations
 blinkLine = (lineClass, score) => {
   setTimeout(() => {
     let blink = gsap.timeline({ repeat: 4 });
@@ -295,6 +320,7 @@ blinkLine = (lineClass, score) => {
   }, 1000);
 };
 
+// gets the result for each position
 spinResults = (slotMode) => {
   let reel_left_rnd;
   let reel_center_rnd;
@@ -351,23 +377,22 @@ spinResults = (slotMode) => {
   balanceArea.value = totalScore;
 };
 
+// Gets the results and spins the reels and land on proper positions
 spinTo = (reel_left_rnd, reel_center_rnd, reel_right_rnd) => {
-  gsap.to(".reel__left", 1, {
-    y: reelItems[reel_left_rnd]["position"],
-    ease: "elastic.inOut(1, 0.3)",
-  });
-  gsap.to(".reel__center", 1, {
-    y: reelItems[reel_center_rnd]["position"],
-    ease: "elastic.inOut(1, 0.3)",
-  });
-  gsap.to(".reel__right", 1, {
-    y: reelItems[reel_right_rnd]["position"],
-    ease: "elastic.inOut(1, 0.3)",
-  });
+  let spinTo = gsap.timeline({ repeat: 0 });
+  spinTo
+    .to(".reel__left", 0.5, {
+      y: reelItems[reel_left_rnd]["position"],
+    })
+    .to(".reel__center", 0.5, {
+      y: reelItems[reel_center_rnd]["position"],
+    })
+    .to(".reel__right", 0.5, {
+      y: reelItems[reel_right_rnd]["position"],
+    });
 };
-change = () => {
-  console.log("changed");
-};
+
+// spins the reels before deciding the results
 spin = () => {
   if (totalScore > 0) {
     //disable the spin button
@@ -389,15 +414,24 @@ spin = () => {
         spinResults(mode);
         spinBut.disable = false;
         spinBut.classList.toggle("disable");
-      }, 2000);
+      }, 1500);
     }
   }
 };
+
+// Changes the balance Area (the text box)
 changeScore = () => {
   totalScore = document.querySelector("#balanceArea").value;
+  if (totalScore < 1) {
+    document.querySelector("#balanceArea").value = 1;
+  } else if (totalScore > 5000) {
+    document.querySelector("#balanceArea").value = 5000;
+  } else if (totalScore >= 0 && totalScore <= 5000) {
+    totalScore = document.querySelector("#balanceArea").value;
+  } else {
+    document.querySelector("#balanceArea").value = 5000;
+  }
 };
 
+// pics a random position for each reel, at the begining
 initialPositions();
-
-// Additional animations
-rotateButtonArrow = () => {};
