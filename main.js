@@ -88,11 +88,22 @@ let mode = "random";
 changeMode = (slotMode) => {
   mode = slotMode;
   if (mode === "random") {
-    gsap.to(".fixMode", 1, { y: 400, ease: "power4.out" });
-    // document.querySelector(".fixMode").style.display = "none";
+    gsap.to(".fixMode", 1, { y: 400, height: 0, ease: "power4.out" });
   } else {
-    gsap.to(".fixMode", 1, { y: 0, ease: "power4.out" });
-    // document.querySelector(".fixMode").style.display = "block";
+    gsap.to(".fixMode", 1, { y: 0, height: "auto", ease: "power4.out" });
+  }
+};
+
+// for mobile
+let paytableShow = false;
+menuClicked = () => {
+  console.log("Menu clicked");
+  if (paytableShow) {
+    gsap.to(".paytable", 0.5, { y: -600, ease: "power2.out" });
+    paytableShow = false;
+  } else {
+    gsap.to(".paytable", 0.5, { y: 600, ease: "power2.out" });
+    paytableShow = true;
   }
 };
 

@@ -21,6 +21,9 @@
   <body>
     <ion-app>
       <ion-content>
+        <div class="phoneMenuBar" onclick="menuClicked()">
+          <ion-icon name="cash"></ion-icon>
+        </div>
         <div class="gameContainer">
           <div class="mainContainer">
             <div class="reelsContainer">
@@ -346,7 +349,7 @@
               </div>
               <div class="fixMode">
                 <div class="fixMode__cols">
-                  <div class="ReelWrapper">
+                  <div class="modeSelects">
                     <ion-item class="leftReel">
                       <ion-label>Left Reel</ion-label>
                       <ion-select value="top" id="leftReelPosition">
@@ -376,7 +379,7 @@
                       </ion-select>
                     </ion-item>
                   </div>
-                  <div class="ReelWrapper">
+                  <div class="modeSelects">
                     <ion-item>
                       <ion-label>Center Reel</ion-label>
                       <ion-select value="top" id="centerReelPosition">
@@ -406,7 +409,7 @@
                       </ion-select>
                     </ion-item>
                   </div>
-                  <div class="ReelWrapper">
+                  <div class="modeSelects">
                     <ion-item>
                       <ion-label>Right Reel</ion-label>
                       <ion-select value="top" id="rightReelPosition">
