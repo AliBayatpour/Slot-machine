@@ -253,6 +253,10 @@
   --color: white;
 }
 
+.controlerContainer .leftReel {
+  margin-left: 16px;
+}
+
 .controlerContainer .fixMode {
   width: 100%;
 }
@@ -268,10 +272,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-}
-
-.controlerContainer .fixMode__cols .firstReel {
-  margin-left: 16px;
 }
 
 .controlerContainer .fixMode ion-item {

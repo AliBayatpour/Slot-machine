@@ -179,15 +179,15 @@
       }
     }
   }
+  .leftReel {
+    margin-left: 16px;
+  }
   .fixMode {
     width: 100%;
     &__cols {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
-      .leftReel {
-        margin-left: 16px;
-      }
     }
     ion-item {
       --border-color: #f0014d;
