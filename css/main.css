@@ -218,7 +218,7 @@ ion-content {
   background-position: center;
   margin: 0;
   padding-bottom: 16px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .reelHighlightBox {
