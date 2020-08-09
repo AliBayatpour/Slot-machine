@@ -36,7 +36,7 @@ Prizes combinations:
 Balance
 Text-box showing the coin balance, it can be modified for debugging purposes on a range from 1 to 5000.
 
-Sping Button
+Spin Button
 Press on SPIN button start spinning of all three reels. Each spin costs player 1 coin.
 
 Debug Area
